@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { TodoService } from "../todo.service";
 import { TodoItemData } from "../dataTypes/TodoItemData";
 
+
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
@@ -10,6 +11,7 @@ import { TodoItemData } from "../dataTypes/TodoItemData";
 export class TodoItemComponent implements OnInit {
 
   @Input() private data: TodoItemData;
+
  
   @ViewChild("newTextInput", {static: false}) private inputLabel: ElementRef;
 
@@ -36,15 +38,16 @@ export class TodoItemComponent implements OnInit {
     this.todoService.setItemsLabel(lab, this.data);
   }
 
+  //fonctions pour savoir si le label de la liste a été coché ou non 
   get isDone(): boolean {
     return this.data.isDone;
   }
 
-  set isDone(done: boolean) {
+  set isDone(done: boolean) { 
     this.todoService.setItemsDone(done, this.data);
   }
 
-  destroy() {
+  destroy() { 
     this.todoService.removeItems(this.data);
   }
 

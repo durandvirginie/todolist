@@ -1,7 +1,18 @@
 <section class="todoapp">
   <header class="header">
-    <h1>{{label}}</h1>
-    <form (submit)="appendItem(newTodoInput.value); newTodoInput.value = ''">
+    <h1 class="editTitre" *ngIf="!showEditTitre" (dblclick)="showEditTitre = true">{{titre}}</h1>
+    <form (submit)="showEditTitre = false">
+      <input  
+              #newTitreInput
+              class="edit"
+              name="newTitreInput"
+              [(ngModel)]="titre" 
+              (blur)="showEditTitre = false"
+              *ngIf="showEditTitre"
+    
+      />
+    </form>
+    <form (submit) = "appendItem(newTodoInput.value); newTodoInput.value= '' ">
       <input  #newTodoInput
               name        = "newTodoInput"
               class       = "new-todo"
@@ -13,31 +24,38 @@
     <input  class="toggle-all"
             type="checkbox"
             name="toggleAll"
-            [ngModel] = "isAllDone()"
-            (ngModelChange) = "toggleAllDone()"
+            [ngModel]="isAllDone()"
+            (ngModelChange)="toggleAllDone()"
     />
-    <ul class="todo-list">
-      <li *ngFor="let item of items" 
-          [class.completed]="item.isDone"
-          [class.editing]="itemCompo.editionMode">
+    <ul  class="todo-list">
+      <li *ngFor="let item of getFilteredItems()" [class.editing] = "itemCompo.showEdit" [class.completed] = "item.isDone">
         <app-todo-item #itemCompo [data]="item"></app-todo-item>
       </li>
     </ul>
   </section>
   <footer class="footer">
-    <span class="todo-count"><strong></strong> restantes</span>
+    <span class="todo-count"><strong>{{nbItems()}}</strong> {{ nbItems() === 0 || nbItems() === 1 ? "restante" : "restantes" }}</span>
     <ul class="filters">
       <li>
-        <a class="filterAll">Tous</a>
+        <a class="filterAll"
+        (click)="currentFilter=filterAll"
+        [class.selected] ="currentFilter==filterAll" >Tous</a>
       </li>
       <li>
-        <a class="filterActives">Actifs</a>
+        <a class="filterActives"
+        (click)="currentFilter=filterUnDone"
+        [class.selected] ="currentFilter==filterUnDone">Actifs</a>
       </li>
       <li>
-        <a class="filterCompleted">Complétés</a>
+        <a class="filterCompleted"
+        (click) = "currentFilter=filterDone"
+        [class.selected] = "currentFilter==filterDone">Complétés</a>
       </li>
     </ul>
-    <button class="clear-completed" >Supprimer cochées</button>
+    <button class="clear-completed" (click)="removeCheckedItems()" >Supprimer cochées</button>
   </footer>
+  <div class="footer">
+    <button class="clear-completed" (click)="removeAllItems()" >Supprimer toute la liste</button>
+  </div>
 </section>
 <hr/>

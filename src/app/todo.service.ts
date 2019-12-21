@@ -46,12 +46,5 @@ export class TodoService {
     });
   }
 
-  /*removeAllItems(...items: TodoItemData[]){
-    const tdl = this.todoListSubject.getValue();
-    this.todoListSubject.next( {
-      label: tdl.label, // ou on peut écrire: ...tdl,
-      items: tdl.items.filter( I => items.indexOf(I) === -1 )
-    });
-  }*/
 
 }
