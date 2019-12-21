@@ -19,4 +19,5 @@ Vous pouvez dès lors tester les différentes fonctionnalités implémentées (v
 ## FONCTIONNALITES IMPLEMENTEES
 
 Édition du nom de la liste
+
 Effacer Tout
