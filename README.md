@@ -1,11 +1,11 @@
 # MIASHS-M2-TP3-Projet
 
-GUIDE D'INSTALLATION
+## GUIDE D'INSTALLATION
 
-Voici les lignes de commande (placez vous dans le répertoire souhaité pour télécharger le dossier) :
+### Voici les lignes de commande (placez vous dans le répertoire souhaité pour télécharger le dossier) :
   git clone https://github.com/durandvirginie/todolist.git" 
 
-Placez-vous dans le dossier qui vient d'être cloner. Puis éxécutez les commandes suivantes : 
+### Placez-vous dans le dossier qui vient d'être cloner. Puis éxécutez les commandes suivantes : 
   npm install
 Ensuite soit tapez :
   ng serve -o 
@@ -16,7 +16,7 @@ puis lancer votre navigateur et rendez vous sur la page http://localhost:4200/
 
 Vous pouvez dès lors tester les différentes fonctionnalités implémentées (voir la liste ci-dessous).
 
-FONCTIONNALITES IMPLEMENTEES
+## FONCTIONNALITES IMPLEMENTEES
 
 Édition du nom de la liste
 Effacer Tout
