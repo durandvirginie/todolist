@@ -9,7 +9,7 @@
   npm install
 ### Ensuite soit tapez :
   ng serve -o 
- (pour que ça ouvre directement votre serveur web à l'adresse http://localhost:4200/
+ (pour que ça ouvre directement votre serveur web à l'adresse http://localhost:4200/ )
 ### ou tapez :
   ng serve
 ### puis lancer votre navigateur et rendez vous sur la page http://localhost:4200/
