@@ -7,12 +7,12 @@
 
 ### Placez-vous dans le dossier qui vient d'être cloner. Puis éxécutez les commandes suivantes : 
   npm install
-Ensuite soit tapez :
+### Ensuite soit tapez :
   ng serve -o 
  (pour que ça ouvre directement votre serveur web à l'adresse http://localhost:4200/
-ou tapez :
+### ou tapez :
   ng serve
-puis lancer votre navigateur et rendez vous sur la page http://localhost:4200/
+### puis lancer votre navigateur et rendez vous sur la page http://localhost:4200/
 
 Vous pouvez dès lors tester les différentes fonctionnalités implémentées (voir la liste ci-dessous).
 
