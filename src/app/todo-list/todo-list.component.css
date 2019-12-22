@@ -1,0 +1,14 @@
+.edit {
+    display: block;
+    position: absolute;
+    top: -140px; 
+    width: 400px;
+    font-size: 100px;
+    font-weight: 100;
+    text-align: center;
+    color: rgba(175, 22, 22, 0.74);
+    text-rendering: optimizeLegibility;
+    -webkit-text-rendering: optimizeLegibility; 
+    -moz-text-rendering: optimizeLegibility;
+
+}
