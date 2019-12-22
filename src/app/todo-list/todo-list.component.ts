@@ -2,6 +2,8 @@ import {ChangeDetectionStrategy, Component, Input, OnInit, ViewChild, ElementRef
 import {TodoListData} from '../dataTypes/TodoListData';
 import {TodoItemData} from '../dataTypes/TodoItemData';
 import {TodoService} from '../todo.service';
+import { faUndo } from '@fortawesome/free-solid-svg-icons';
+import { faRedo } from '@fortawesome/free-solid-svg-icons';
 type FCT_FILTER_ITEMS =(item: TodoItemData) => boolean;
 
 @Component({
@@ -13,6 +15,9 @@ export class TodoListComponent implements OnInit {
   
   @Input() private data: TodoListData;
   private titre: string; // pour gérer le titre de la liste 
+  faUndo = faUndo;
+  faRedo = faRedo;
+
   @ViewChild("newTodoInput", {static: false}) newTodoInput: ElementRef;
 
   filterAll: FCT_FILTER_ITEMS =() => true;  // tous les filtre
@@ -88,5 +93,13 @@ export class TodoListComponent implements OnInit {
     this.data.items.forEach(item=>{
       this.todoService.removeItems(item);
     })
+  }
+
+  undo(){
+    this.todoService.undo();
+  }
+  
+  redo(){
+    this.todoService.redo();
   }
 }

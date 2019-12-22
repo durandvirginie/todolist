@@ -10,5 +10,10 @@
     text-rendering: optimizeLegibility;
     -webkit-text-rendering: optimizeLegibility; 
     -moz-text-rendering: optimizeLegibility;
+    word-break: break-all;
+}
 
+#btnRedo, btnUndo {
+    float: left;
+    margin-right: 1%;
 }
