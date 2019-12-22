@@ -9,6 +9,7 @@ export class TodoService {
   private todoListSubject = new BehaviorSubject<TodoListData>( {label: 'TodoList', items: []} );
   private listUndo: TodoListData[]= [];
   private listRedo: TodoListData[]= [];
+
   constructor() { 
     this.getLocalStorage();
   }
@@ -75,8 +76,15 @@ export class TodoService {
     }
     this.saveLocalStorage();
   }
+
+  saveAction(tdl:TodoListData){
+    this.listUndo.push(tdl);
+    this.listRedo= [];
+    this.saveLocalStorage;
+  }
+
   saveLocalStorage(){
-    localStorage.setItem('todoList', JSON.stringify(this.todoListSubject.getValue()));
+    localStorage.setItem('todoList', JSON.stringify(this.todoListSubject.getValue()) );
   }
 
   getLocalStorage(){
@@ -87,10 +95,5 @@ export class TodoService {
         items: tdl.items
       });
     }
-  }
-
-  saveAction(tdl:TodoListData){
-    this.listUndo.push(tdl);
-    this.listRedo= [];
   }
 }

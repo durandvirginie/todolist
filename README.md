@@ -1,17 +1,9 @@
 # PROJET CRÉATION D'UNE TODOLIST
 ## GUIDE D'INSTALLATION
 
-<<<<<<< HEAD
 ### Voici les lignes de commande (placez vous dans le répertoire souhaité pour télécharger le dossier) :
   git clone https://github.com/durandvirginie/todolist.git" 
 
-=======
-## GUIDE D'INSTALLATION
-
-### Voici les lignes de commande (placez vous dans le répertoire souhaité pour télécharger le dossier) :
-  git clone https://github.com/durandvirginie/todolist.git" 
-
->>>>>>> afa0734c2a910b708920a34980c812b778e59257
 ### Placez-vous dans le dossier qui vient d'être cloner. Puis éxécutez les commandes suivantes : 
   npm install
 ### Ensuite soit tapez :
@@ -28,3 +20,7 @@ Vous pouvez dès lors tester les différentes fonctionnalités implémentées (v
 Édition du nom de la liste
 
 Effacer Tout
+
+Local Storage 
+
+Undo/Redo 
