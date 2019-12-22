@@ -9,7 +9,9 @@ export class TodoService {
   private todoListSubject = new BehaviorSubject<TodoListData>( {label: 'TodoList', items: []} );
   private listUndo: TodoListData[]= [];
   private listRedo: TodoListData[]= [];
-  constructor() { }
+  constructor() { 
+    this.getLocalStorage();
+  }
 
   getTodoListDataObserver(): Observable<TodoListData> {
     return this.todoListSubject.asObservable();
@@ -60,6 +62,7 @@ export class TodoService {
         items: action.items
       });
     }
+    this.saveLocalStorage();
   }
   redo(){
     if(this.listRedo.length !== 0){
@@ -70,11 +73,24 @@ export class TodoService {
         items: action.items
       });
     }
+    this.saveLocalStorage();
+  }
+  saveLocalStorage(){
+    localStorage.setItem('todoList', JSON.stringify(this.todoListSubject.getValue()));
   }
 
-  saveAction(before:TodoListData){
-    this.listUndo.push(before);
+  getLocalStorage(){
+    if (typeof localStorage!='undefined' && localStorage.getItem('todoList')!==null){
+      const tdl = JSON.parse(localStorage.getItem('todoList'));
+      this.todoListSubject.next({
+        label: tdl.label,
+        items: tdl.items
+      });
+    }
+  }
+
+  saveAction(tdl:TodoListData){
+    this.listUndo.push(tdl);
     this.listRedo= [];
   }
-
 }
